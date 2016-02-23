@@ -22,13 +22,13 @@ public class MovingTerrain : Terrain
   if (returning)
   {
    transform.Translate(-Speed * Time.deltaTime);
-   if (Vector3.Distance(localPosition, From) < 0.01f)
+   if (Vector3.Distance(localPosition, From) < 0.05f)
     returning = false;
   }
   else
   {
    transform.Translate(Speed * Time.deltaTime);
-   if (Vector3.Distance(localPosition, To) < 0.01f)
+   if (Vector3.Distance(localPosition, To) < 0.05f)
     returning = true;
   }
  }

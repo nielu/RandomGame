@@ -6,6 +6,7 @@ public class CameraVelocity : MonoBehaviour
     // script to move camera
     public float maxWalkSpeed;
     public float jumpSpeed;
+    public float Health;
     public Vector3 startingPosition;
     public GameObject player;
     public GameObject cam;
@@ -32,7 +33,7 @@ public class CameraVelocity : MonoBehaviour
 
         actualSpeed = 0f;
 
-        if (transform.position.y < -1)
+        if (transform.position.y < -1 || Health < 0)
         {
             GameOver();
             return;
@@ -130,5 +131,6 @@ public class CameraVelocity : MonoBehaviour
         transform.position = startingPosition;
         cam.transform.position = cameraStartingPosition;
         actualSpeed = maxWalkSpeed;
+        Health = 5f;
     }
 }

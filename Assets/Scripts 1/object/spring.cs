@@ -1,15 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class spring : MonoBehaviour {
+public class spring : TerrainObject
+{
+    public float Force;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private bool isUp = false;
+    private float timeout = 0f;
+    public override void Start()
+    {
+        base.Start();
+    }
+
+    public override void Update()
+    {
+        base.Start();
+        if (isUp)
+        {
+            timeout -= Time.deltaTime;
+            if (timeout < 0)
+            {
+                timeout = 0f;
+                isUp = false;
+                Anim.SetBool("isUp", isUp);
+
+            }
+        }
+    }
+
+    public override void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag(Player.tag) && isUp == false)
+        {
+            isUp = true;
+            Anim.SetBool("isUp", isUp);
+
+            timeout = 2.5f;
+
+            Player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * Force, ForceMode2D.Impulse);
+        }
+
+        base.OnCollisionEnter2D(coll);
+    }
 }
