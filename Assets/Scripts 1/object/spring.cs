@@ -35,7 +35,7 @@ public class spring : TerrainObject
             isUp = true;
             Anim.SetBool("isUp", isUp);
 
-            timeout = 2.5f;
+            timeout = 1.5f;
 
             Player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * Force, ForceMode2D.Impulse);
         }
