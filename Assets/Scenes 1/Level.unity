@@ -260,6 +260,7 @@ MonoBehaviour:
   - {fileID: 120336, guid: 52c76f78ba29ae64298632135356fb8a, type: 2}
   - {fileID: 162200, guid: b07eb1fe57103054aa694205f9721113, type: 2}
   - {fileID: 165594, guid: e611d1e58a27a2e4bbcf0eaf1974f5f2, type: 2}
+  - {fileID: 132046, guid: c25d9cde6e0b69b4ab27c49bdb1ed22d, type: 2}
   ItemsToSpawn:
   - {fileID: 125416, guid: 6ac099924f3c56f41989f9057e0fc341, type: 2}
   - {fileID: 156112, guid: 16b27646bd7809345bb23085c41e4ce6, type: 2}
@@ -271,6 +272,7 @@ MonoBehaviour:
   enemyToSpawn:
   - {fileID: 131082, guid: 160d559be4cc91d43862272a0fa148e9, type: 2}
   - {fileID: 136662, guid: db4d63473fb9e184fa3c65fa1cd401e7, type: 2}
+  - {fileID: 164638, guid: a7de49b75b2adda46bf10ef3cefb4560, type: 2}
   startSpawnPosition: 11.2
   spawnYPos: 0
 --- !u!4 &1415116496
