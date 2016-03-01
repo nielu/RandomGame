@@ -261,6 +261,8 @@ MonoBehaviour:
   - {fileID: 162200, guid: b07eb1fe57103054aa694205f9721113, type: 2}
   - {fileID: 165594, guid: e611d1e58a27a2e4bbcf0eaf1974f5f2, type: 2}
   - {fileID: 132046, guid: c25d9cde6e0b69b4ab27c49bdb1ed22d, type: 2}
+  - {fileID: 134388, guid: 7c63a3e35e5caa746803ab046ad9f577, type: 2}
+  - {fileID: 141940, guid: 23ee68ae9d83e84478782219361fe49f, type: 2}
   ItemsToSpawn:
   - {fileID: 125416, guid: 6ac099924f3c56f41989f9057e0fc341, type: 2}
   - {fileID: 156112, guid: 16b27646bd7809345bb23085c41e4ce6, type: 2}
@@ -412,7 +414,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_IsKinematic: 0
   m_Interpolate: 0
