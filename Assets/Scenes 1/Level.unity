@@ -94,7 +94,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400030, guid: 64ba3edff8a1241039e1de6112f12c13, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .589999974
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: 64ba3edff8a1241039e1de6112f12c13, type: 2}
       propertyPath: m_LocalPosition.y
@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400030, guid: 64ba3edff8a1241039e1de6112f12c13, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 466306, guid: 64ba3edff8a1241039e1de6112f12c13, type: 2}
       propertyPath: m_LocalPosition.x
@@ -249,20 +249,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainToSpawn:
+  - {fileID: 120336, guid: 52c76f78ba29ae64298632135356fb8a, type: 2}
   - {fileID: 147010, guid: 802366d6e6096444a8efeadb548abff4, type: 2}
+  - {fileID: 155054, guid: b9ecc508ea3335e418967d9409b7d401, type: 2}
+  - {fileID: 113868, guid: 13bab812f0db3a042b9c777565298492, type: 2}
+  - {fileID: 188948, guid: 1dc4a9b3d94a1324ca0191a0934fb2bf, type: 2}
+  - {fileID: 100000, guid: bec0d2df98ac743fb8f71a0dc75fb0be, type: 2}
+  - {fileID: 162200, guid: b07eb1fe57103054aa694205f9721113, type: 2}
+  - {fileID: 135920, guid: 85bfac761ce64c843b144ab72fd1df42, type: 2}
+  - {fileID: 160694, guid: 43152c04547f7bb48905123399f22174, type: 2}
+  - {fileID: 165594, guid: e611d1e58a27a2e4bbcf0eaf1974f5f2, type: 2}
+  - {fileID: 134388, guid: 7c63a3e35e5caa746803ab046ad9f577, type: 2}
+  - {fileID: 132046, guid: c25d9cde6e0b69b4ab27c49bdb1ed22d, type: 2}
   - {fileID: 100014, guid: c1ff229262c9b4f45bd604eb5f5ebcb6, type: 2}
   - {fileID: 192736, guid: d5c4c64822e8c0a4bb37f5a531810cdf, type: 2}
+  - {fileID: 127620, guid: fbba6abc11b49b74680fceb59abf83de, type: 2}
+  - {fileID: 151962, guid: d8bcf0d17ef35264eac3f2994718e737, type: 2}
   - {fileID: 173180, guid: 1d7774401e9eb8e44974adf2dbe9cd8c, type: 2}
   - {fileID: 122184, guid: 1048b4c1e7f21bc48bf9e2c52dfc31e9, type: 2}
-  - {fileID: 100000, guid: bec0d2df98ac743fb8f71a0dc75fb0be, type: 2}
-  - {fileID: 160694, guid: 43152c04547f7bb48905123399f22174, type: 2}
-  - {fileID: 135920, guid: 85bfac761ce64c843b144ab72fd1df42, type: 2}
-  - {fileID: 120336, guid: 52c76f78ba29ae64298632135356fb8a, type: 2}
-  - {fileID: 162200, guid: b07eb1fe57103054aa694205f9721113, type: 2}
-  - {fileID: 165594, guid: e611d1e58a27a2e4bbcf0eaf1974f5f2, type: 2}
-  - {fileID: 132046, guid: c25d9cde6e0b69b4ab27c49bdb1ed22d, type: 2}
-  - {fileID: 134388, guid: 7c63a3e35e5caa746803ab046ad9f577, type: 2}
   - {fileID: 141940, guid: 23ee68ae9d83e84478782219361fe49f, type: 2}
+  - {fileID: 159052, guid: 15bc5d185b5023a45a36514e049fd9dc, type: 2}
+  terrainFinishers:
+  - {fileID: 141566, guid: 5476dbc15447a1f44985eedc56732da8, type: 2}
+  - {fileID: 149830, guid: 671573486064fd8489378e913d2bf12b, type: 2}
+  terrainStarters:
+  - {fileID: 119686, guid: de050a61c1d028243abf2053d9f2e916, type: 2}
+  - {fileID: 136664, guid: 09f83031932345c4083be89c6f443c42, type: 2}
   ItemsToSpawn:
   - {fileID: 125416, guid: 6ac099924f3c56f41989f9057e0fc341, type: 2}
   - {fileID: 156112, guid: 16b27646bd7809345bb23085c41e4ce6, type: 2}

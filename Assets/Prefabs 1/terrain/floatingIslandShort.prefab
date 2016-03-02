@@ -112,9 +112,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76da9c26ec24be844b6560379164e6b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Length: 0
+  Length: 1.4
   EntryHeight: 0
   ExitHeight: 0
+  CleanEntry: 1
+  CleanExit: 1
   From: {x: 0, y: 0, z: 0}
   To: {x: 0, y: 0, z: 0}
   Speed: {x: 0, y: 0, z: 0}
@@ -188,6 +190,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CleanEntry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CleanExit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Length
+      value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
