@@ -3,71 +3,81 @@ using System.Collections;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public int Seed;
-    public float MaxLevelLength;
-    public float MinLevelLength;
+ public int Seed;
+ public int OctaveCount;
+ public float Persistence;
 
-    public GameObject StartingTerrain;
-    public GameObject EndingTerrain;
+ public float MaxLevelLength;
+ public float MinLevelLength;
 
-    public GameObject[] TerrainBlocks;
+ public GameObject StartingTerrain;
+ public GameObject EndingTerrain;
+
+ public GameObject[] TerrainBlocks;
 
 
 
-    private Vector3 EndingPosition;
-    private Vector3 ActualPosition;
+ private Vector3 EndingPosition;
+ private Vector3 ActualPosition;
 
-	// Use this for initialization
-	void Start () 
-    {
-        if (Seed == 0)
-        {
-            Seed = System.DateTime.Now.GetHashCode();
-        }
+ // Use this for initialization
+ void Start()
+ {
+  var xPos = 0.0f;
+  for (int i = 0; i < 100; i++)
+  {
+   float h = Mathf.PerlinNoise(Time.time + Random.Range(0f, 5f), 0f);
+   Instantiate(TerrainBlocks[0], new Vector3(xPos, h, 0), Quaternion.Euler(0, 0, 0));
+   xPos += 0.7f;
+  }
 
-        Random.seed = Seed;
+  //    if (Seed == 0)
+  //    {
+  //        Seed = System.DateTime.Now.GetHashCode();
+  //    }
 
-        ActualPosition = new Vector3(0, 0, 0);
-        EndingPosition = new Vector3(Random.Range(MinLevelLength, MaxLevelLength), 0, 0);
+  //    Random.seed = Seed;
 
-        SpawnTerrain(StartingTerrain);
+  //    ActualPosition = new Vector3(0, 0, 0);
+  //    EndingPosition = new Vector3(Random.Range(MinLevelLength, MaxLevelLength), 0, 0);
 
-        while (ActualPosition.x < EndingPosition.x)
-        {
-            GameObject terrain = SelectTerrain();
-            SpawnTerrain(terrain);
-        }
+  //    SpawnTerrain(StartingTerrain);
 
-        SpawnTerrain(EndingTerrain);
+  //    while (ActualPosition.x < EndingPosition.x)
+  //    {
+  //        GameObject terrain = SelectTerrain();
+  //        SpawnTerrain(terrain);
+  //    }
 
-	}
+  //    SpawnTerrain(EndingTerrain);
 
-    private GameObject SelectTerrain()
-    {
-        var r = Random.Range(0, TerrainBlocks.Length);
-        return TerrainBlocks[r];
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	    
-	}
+ }
 
-    void SpawnTerrain(GameObject terrain)
-    {
-        SpawnTerrain(terrain, ActualPosition);
-    }
+ private GameObject SelectTerrain()
+ {
+  var r = Random.Range(0, TerrainBlocks.Length);
+  return TerrainBlocks[r];
+ }
 
-    void SpawnTerrain(GameObject terrain, Vector3 Position)
-    {
-        Instantiate(terrain, Position, Quaternion.Euler(0, 0, 0));
-        ActualPosition = UpdatePosition(terrain, Position);
-    }
+ // Update is called once per frame
+ void Update()
+ {
+ }
 
-    Vector3 UpdatePosition(GameObject terrain, Vector3 Position)
-    {
-        var t = terrain.GetComponent<Terrain>();
-        return new Vector3(t.Length + Position.x, t.ExitHeight + Position.y);
-    }
+ void SpawnTerrain(GameObject terrain)
+ {
+  SpawnTerrain(terrain, ActualPosition);
+ }
+
+ void SpawnTerrain(GameObject terrain, Vector3 Position)
+ {
+  Instantiate(terrain, Position, Quaternion.Euler(0, 0, 0));
+  ActualPosition = UpdatePosition(terrain, Position);
+ }
+
+ Vector3 UpdatePosition(GameObject terrain, Vector3 Position)
+ {
+  var t = terrain.GetComponent<Terrain>();
+  return new Vector3(t.Length + Position.x, t.ExitHeight + Position.y);
+ }
 }
