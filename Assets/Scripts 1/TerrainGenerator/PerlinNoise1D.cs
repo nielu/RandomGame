@@ -14,9 +14,8 @@ class PerlinNoise1D
         float[][] returnArray = new float[X][];
         for (int i = 0; i < X; i++)
             returnArray[i] = new float[Y];
-
-        Random.seed = seed;
-
+        
+        Random.InitState(seed);
         var noise = 0f;
         var gain = 1.0f;
 
@@ -50,7 +49,7 @@ class PerlinNoise1D
     public float[] GetHeightMap(float step, int size, int octaveCount = 6, float persistence = 0.25f, int seed = 0)
     {
         if (seed != 0)
-            Random.seed = seed;
+            Random.InitState(seed);
 
         float[] map = new float[size];
         float xValue = 0f, frequency, amplitude;
@@ -104,7 +103,7 @@ class PerlinNoise1D
 
     float Noise(int x)
     {
-        Random.seed = x;
+        Random.InitState(x);
         return Random.Range(-10.0f, 10.0f);
     }
 

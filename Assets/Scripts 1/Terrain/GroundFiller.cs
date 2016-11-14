@@ -30,7 +30,7 @@ public class GroundFiller : MonoBehaviour
     {
         for (int i = 0; i < HowMuch; i++)
         {
-            Instantiate(DirtBlock, lastPos + new Vector2(0, -1.4f), Quaternion.EulerAngles(0,0,0));
+            Instantiate(DirtBlock, lastPos + new Vector2(0, -1.4f), Quaternion.Euler(Vector3.zero));
         }
     }
 }
