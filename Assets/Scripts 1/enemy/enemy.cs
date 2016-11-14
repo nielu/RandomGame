@@ -12,21 +12,26 @@ public class enemy : MonoBehaviour
     protected Rigidbody2D body;
     protected GameObject player;
     protected Vector3 startingPosition;
-    protected bool goRight = false;
-    protected bool isAlive = true;
-    protected bool onEdge = false;
+    protected SpriteRenderer spriteRender;
+    protected bool goRight;
+    protected bool isAlive;
+    protected bool onEdge;
     // Use this for initialization
     protected virtual void Start()
     {
+        goRight = false;
+        isAlive = true;
+        onEdge = false;
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
+        spriteRender = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         startingPosition = body.position;
         animator.SetBool("isAlive", isAlive);
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         if (isAlive && body.position.x < -1f)
         {
@@ -41,15 +46,14 @@ public class enemy : MonoBehaviour
     protected void flip()
     {
         goRight = !goRight;
-        var scale = transform.localScale;
-        scale.x = scale.x * -1f;
-        transform.localScale = scale;
+        spriteRender.flipX = goRight;
 
     }
 
 
     protected RaycastHit2D GetGround(float length = 3f, float xOffset = 0f, float yOffset = 0f)
     {
+        Debug.DrawRay(body.position + new Vector2(xOffset, yOffset), -Vector2.up, Color.blue, length);
         return Physics2D.Raycast(body.position + new Vector2(xOffset, yOffset), -Vector2.up, length);
     }
 

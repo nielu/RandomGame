@@ -13,12 +13,12 @@ public class snail : enemy
 	}
 	
 	// Update is called once per frame
-	protected override void Update () 
+	protected override void FixedUpdate () 
     {
         var move = new Vector3();
         if (goRight)
         {
-            if (body.position.x > pos2.x)
+            if (body.position.x > pos2.x || !GetGround(0.5f, 0.3f, 0f))
             {
                 move.x = -speed;
                 flip();
@@ -28,7 +28,7 @@ public class snail : enemy
         }
         else
         {
-            if (body.position.x < pos1.x)
+            if (body.position.x < pos1.x || !GetGround(0.5f, -0.3f, 0f))
             {
                 move.x = speed;
                 flip();
@@ -36,11 +36,10 @@ public class snail : enemy
             else
                 move.x = -speed;
         }
-
         move.x *= Time.deltaTime;
         body.transform.Translate(move);
 
-        base.Update();
+        base.FixedUpdate();
 	}
 
 

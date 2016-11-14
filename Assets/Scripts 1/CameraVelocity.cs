@@ -32,7 +32,7 @@ public class CameraVelocity : MonoBehaviour
 
         //body.freezeRotation = false;
     }
-    void Update()
+    void FixedUpdate()
     {
 
         actualSpeed = 0f;
@@ -58,9 +58,7 @@ public class CameraVelocity : MonoBehaviour
         }
         else if (groundHit && lastGround)
             lastGround = false;
-
-
-
+        
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             actualSpeed = -maxWalkSpeed;
@@ -68,6 +66,10 @@ public class CameraVelocity : MonoBehaviour
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             actualSpeed = maxWalkSpeed;
+        }
+        else if (Mathf.Abs(Input.acceleration.x) > 0.05f)
+        {
+            actualSpeed = Input.acceleration.x * maxWalkSpeed * 2f; //full speed at 45* bank?
         }
 
 

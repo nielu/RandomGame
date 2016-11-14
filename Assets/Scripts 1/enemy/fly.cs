@@ -14,9 +14,9 @@ public class fly : enemy
 	}
 	
 	// Update is called once per frame
-	protected override void Update () 
+	protected override void FixedUpdate() 
     {
-        base.Update();
+        base.FixedUpdate();
         var ground = GetGround();
         var height = Vector2.Distance(body.position, ground.point);
         if (isAlive && body.velocity.y < 0.1f && height < 1.0f)

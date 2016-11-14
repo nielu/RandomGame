@@ -8,18 +8,22 @@ public class slime : enemy
         base.Start();
     }
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
 
 
+        if (goRight && player.transform.position.x - transform.position.x < 0)
+            flip();
+        else if (!goRight && transform.position.x - player.transform.position.x < 0)
+            flip();
 
-        if (goRight && !GetGround(0.5f, 0.75f, 0f))
+        if (goRight && !GetGround(0.5f, 0.3f, 0f))
         {
             goRight = false;
             return;
         }
-        if (!goRight && !GetGround(0.5f, -0.75f, 0f))
+        if (!goRight && !GetGround(0.5f, -0.3f, 0f))
         {
             goRight = true;
             return;
@@ -28,12 +32,9 @@ public class slime : enemy
         if (Vector3.Distance(body.position, player.transform.position) < 15f)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            
         }
 
-        if (goRight && player.transform.position.x - transform.position.x < 0)
-            flip();
-        else if (!goRight && transform.position.x - player.transform.position.x < 0)
-            flip();
 
     }
 
