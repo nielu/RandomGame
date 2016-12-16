@@ -35,13 +35,13 @@ public class PlayerScript : MonoBehaviour
     void FixedUpdate()
     {
 
-        actualSpeed = 0f;
-
-        if (transform.position.y < -1 || Health < 0)
+        if (transform.position.y < -1 || Health <= 0)
         {
             GameOver();
             return;
         }
+
+        actualSpeed = 0f;
 
 
         var groundHit = GetGround();
@@ -137,6 +137,6 @@ public class PlayerScript : MonoBehaviour
         transform.position = startingPosition;
         cam.transform.position = cameraStartingPosition;
         actualSpeed = maxWalkSpeed;
-        Health = 5f;
+        Health = 3f;
     }
 }
