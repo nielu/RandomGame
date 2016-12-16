@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraVelocity : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     // script to move camera
     public float maxWalkSpeed;
