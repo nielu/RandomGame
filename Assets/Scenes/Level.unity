@@ -152,6 +152,56 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &982956143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 982956144}
+  - 114: {fileID: 982956145}
+  m_Layer: 0
+  m_Name: HealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982956144
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982956143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1286604961}
+  m_RootOrder: 1
+--- !u!114 &982956145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982956143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506a16a72d5514142a5cb0471ad429c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  HeartsSprite:
+  - {fileID: 2800000, guid: c161cec988ae3cf47a0ceebd9ab87b81, type: 3}
+  - {fileID: 2800000, guid: 38280b449e4fafb428c5db165d0d19d7, type: 3}
+  - {fileID: 2800000, guid: 8925d59fa21139544acd53b92907ed2b, type: 3}
+  x: 10
+  y: 4
 --- !u!1001 &1265280315
 Prefab:
   m_ObjectHideFlags: 0
@@ -288,6 +338,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 591793580}
+  - {fileID: 982956144}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &1415116494
@@ -457,7 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxWalkSpeed: 150
   jumpSpeed: 6
-  Health: 0
+  Health: 3
   startingPosition: {x: 0.9, y: 4, z: 0}
   player: {fileID: 0}
   cam: {fileID: 1286604956}
