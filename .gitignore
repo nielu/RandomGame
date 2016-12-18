@@ -20,7 +20,6 @@ obj/
 *.booproj
 *.pdb
 *.exe
-*.meta
 # ============ #
 # OS generated #
 # ============ #

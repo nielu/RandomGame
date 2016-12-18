@@ -3,8 +3,7 @@ using System.Collections;
 
 public class HealthBarController : MonoBehaviour
 {
-
-    public GameObject[] Hearts;
+    
     public Texture[] HeartsSprite;
     public int x, y;
 
@@ -40,22 +39,8 @@ public class HealthBarController : MonoBehaviour
 
             var r = new Rect(localX, y, spriteToDraw.width / 2, spriteToDraw.height / 2);
             GUI.DrawTexture(r, spriteToDraw);
-            localX += spriteToDraw.width / 2 + 5;
+            localX += spriteToDraw.width / 2;
         }
-
-        //for (int i = 2; i >= 0; i--)
-        //{
-        //    if (pHealth - i == 1f)
-        //        spriteToDraw = HeartsSprite[2];
-        //    else if (pHealth - i == 0.5f)
-        //        spriteToDraw = HeartsSprite[1];
-        //    else
-        //        spriteToDraw = HeartsSprite[0];
-
-        //    var r = new Rect(localX, y, spriteToDraw.width / 2, spriteToDraw.height / 2);
-        //    GUI.DrawTexture(r, spriteToDraw);
-        //    localX -= spriteToDraw.width / 2 + 5;
-        //}
     }
 
 
