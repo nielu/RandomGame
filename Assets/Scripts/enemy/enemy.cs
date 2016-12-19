@@ -60,7 +60,9 @@ public class enemy : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.CompareTag(player.tag))
-            player.GetComponent<PlayerScript>().Health -= damage;
+        {
+            player.GetComponent<PlayerScript>().ApplyDamage(damage, coll);
+        }
     }
 
 }

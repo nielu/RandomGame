@@ -128,7 +128,14 @@ public class PlayerScript : MonoBehaviour
             Physics2D.Raycast(transform.position + new Vector3(0, -.3f, 0), transform.right, 0.5f, ground));
     }
 
+    public void ApplyDamage(float dmg, Collision2D coll)
+    {
+        Health -= dmg;
+        var f = body.position - coll.contacts[0].point;
 
+        body.AddForce(f * 15.0f, ForceMode2D.Impulse);
+        
+    }
 
     void GameOver()
     {

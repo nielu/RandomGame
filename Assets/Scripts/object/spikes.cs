@@ -21,7 +21,7 @@ public class spikes: TerrainObject
     {
         if (Player.CompareTag(coll.gameObject.tag))
         {
-            Player.GetComponent<PlayerScript>().Health -= damage;
+            Player.GetComponent<PlayerScript>().ApplyDamage(damage, coll);
         }
         base.OnCollisionEnter2D(coll);
     }
