@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public float maxWalkSpeed;
     public float jumpSpeed;
     public float Health;
+    public int Score;
     public Vector3 startingPosition;
     public GameObject player;
     public GameObject cam;
@@ -18,6 +19,7 @@ public class PlayerScript : MonoBehaviour
     private Animator animator;
     private bool isJumping;
     private Rigidbody2D body;
+    private float timer = 0f;
 
     void Start()
     {
@@ -29,7 +31,7 @@ public class PlayerScript : MonoBehaviour
         cameraDifference = cameraStartingPosition - transform.position;
 
         body = GetComponent<Rigidbody2D>();
-
+        Score = 0;
         //body.freezeRotation = false;
     }
     void FixedUpdate()
@@ -97,7 +99,13 @@ public class PlayerScript : MonoBehaviour
         body.velocity = move;
         cam.transform.position = transform.position + cameraDifference;
 
-
+        if (timer > 1.0f)
+        {
+            Score++;
+            timer = 0f;
+        }
+        else
+            timer += Time.deltaTime;
     }
 
 
@@ -145,5 +153,6 @@ public class PlayerScript : MonoBehaviour
         cam.transform.position = cameraStartingPosition;
         actualSpeed = maxWalkSpeed;
         Health = 3f;
+        Score = 0;
     }
 }
