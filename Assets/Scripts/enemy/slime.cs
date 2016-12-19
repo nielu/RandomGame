@@ -19,15 +19,9 @@ public class slime : enemy
             flip();
 
         if (goRight && !GetGround(0.5f, 0.3f, 0f))
-        {
-            goRight = false;
             return;
-        }
         if (!goRight && !GetGround(0.5f, -0.3f, 0f))
-        {
-            goRight = true;
             return;
-        }
 
         if (Vector3.Distance(body.position, player.transform.position) < 15f)
         {
