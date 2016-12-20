@@ -7,6 +7,7 @@ public class enemy : MonoBehaviour
     public float damage;
     public float health;
     public float speed;
+    public int EnemyScore;
 
     protected Animator animator;
     protected Rigidbody2D body;
@@ -35,10 +36,8 @@ public class enemy : MonoBehaviour
     {
         if (isAlive && body.position.x < -1f)
         {
-            isAlive = false;
-            animator.SetBool("isAlive", isAlive);
+            Die();
         }
-
     }
 
 
@@ -48,6 +47,13 @@ public class enemy : MonoBehaviour
         goRight = !goRight;
         spriteRender.flipX = goRight;
 
+    }
+
+    protected void Die()
+    {
+        isAlive = false;
+        animator.SetBool("isAlive", isAlive);
+        GetComponent<Collider2D>().enabled = false;
     }
 
 
@@ -61,7 +67,21 @@ public class enemy : MonoBehaviour
     {
         if (coll.gameObject.CompareTag(player.tag))
         {
-            player.GetComponent<PlayerScript>().ApplyDamage(damage, coll);
+
+            Vector2 contactPoint = coll.contacts[0].point;
+            Vector2 center = body.transform.position;
+
+            Debug.Log(string.Format("Contact {0} Center {1}", contactPoint, center));
+            bool top = contactPoint.y > center.y;
+            bool right = contactPoint.x > center.x;
+            Debug.Log(string.Format("Top: {0} Right {1}", top, right));
+            if (top)        //collision on top of enemy
+            {
+                Die();
+                player.GetComponent<PlayerScript>().Score += EnemyScore;
+            }
+            else
+                player.GetComponent<PlayerScript>().ApplyDamage(damage, coll);
         }
     }
 

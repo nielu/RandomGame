@@ -99,13 +99,13 @@ public class PlayerScript : MonoBehaviour
         body.velocity = move;
         cam.transform.position = transform.position + cameraDifference;
 
-        if (timer > 1.0f)
-        {
-            Score++;
-            timer = 0f;
-        }
-        else
-            timer += Time.deltaTime;
+        //if (timer > 1.0f)
+        //{
+        //    Score++;
+        //    timer = 0f;
+        //}
+        //else
+        //    timer += Time.deltaTime;
     }
 
 

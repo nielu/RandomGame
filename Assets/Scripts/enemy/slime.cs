@@ -12,6 +12,9 @@ public class slime : enemy
     {
         base.FixedUpdate();
 
+        if (isAlive == false)
+            return;
+
 
         if (goRight && player.transform.position.x - transform.position.x < 0)
             flip();
