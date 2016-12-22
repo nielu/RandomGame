@@ -148,7 +148,8 @@ public class PlayerScript : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Failed!");
-        GetComponentInChildren<TerrainSpawner>().GameOver();
+        var terrainSpawner = GetComponentInChildren<TerrainSpawner>();
+        if (terrainSpawner != null) terrainSpawner.GameOver();
         transform.position = startingPosition;
         cam.transform.position = cameraStartingPosition;
         actualSpeed = maxWalkSpeed;
