@@ -54,6 +54,12 @@ public class enemy : MonoBehaviour
         isAlive = false;
         animator.SetBool("isAlive", isAlive);
         GetComponent<Collider2D>().enabled = false;
+        Invoke("DestroyMe", 2.0f);
+    }
+
+    protected void DestroyMe()
+    {
+        DestroyImmediate(this.gameObject.transform.parent.gameObject);
     }
 
 
