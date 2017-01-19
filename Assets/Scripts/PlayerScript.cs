@@ -20,12 +20,14 @@ public class PlayerScript : MonoBehaviour
     private bool isJumping;
     private Rigidbody2D body;
     private float timer = 0f;
-
+    private ShowPanels menuManager;
+    private Pause pause;
     void Start()
     {
         Time.timeScale = 0;
 
-
+        menuManager = GameObject.FindObjectOfType<ShowPanels>();
+        pause = FindObjectOfType<Pause>();
         player = GameObject.Find("Player");
         actualSpeed = maxWalkSpeed;
         isJumping = false;
@@ -153,7 +155,12 @@ public class PlayerScript : MonoBehaviour
         Debug.Log("Failed!");
         var terrainSpawner = GetComponentInChildren<TerrainSpawner>();
         if (terrainSpawner != null) terrainSpawner.GameOver();
+
         transform.position = startingPosition;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        pause.EndGame();
+
         cam.transform.position = cameraStartingPosition;
         actualSpeed = maxWalkSpeed;
         Health = 3f;

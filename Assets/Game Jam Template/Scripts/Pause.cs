@@ -57,5 +57,19 @@ public class Pause : MonoBehaviour {
 		showPanels.HidePausePanel ();
 	}
 
+    public void EndGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+        showPanels.ShowEndPanel();
+    }
+
+    public void Restart()
+    {
+        isPaused = false;
+        Time.timeScale = 1;
+        showPanels.HideEndPanel();
+    }
+
 
 }
