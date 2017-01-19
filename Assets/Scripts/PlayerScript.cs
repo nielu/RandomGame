@@ -23,6 +23,9 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
+
+
         player = GameObject.Find("Player");
         actualSpeed = maxWalkSpeed;
         isJumping = false;
